@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Oplossing while deel2</title>
+        <title>Oplossing for deel2</title>
         <style>
             
             .even
