@@ -26,7 +26,7 @@
         return $dataArray;
     }
 
-    function launchAngryBird( $maximumThrows,   )
+    function launchAngryBird( $maximumThrows)
     {
         global $maximumThrows;
         global $pigHealth;
