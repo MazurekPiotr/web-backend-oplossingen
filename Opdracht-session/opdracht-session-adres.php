@@ -17,6 +17,12 @@
 		$gemeente = $_SESSION['deel2']['gemeente'];
 		$postcode = $_SESSION['deel2']['postcode'];
 	}
+	else{
+		$straat = '';
+		$nummer = '';
+		$gemeente = '';
+		$postcode = '';
+	}
 ?>
 
 <!DOCTYPE html>
@@ -35,13 +41,13 @@
 		<h1>adres</h1>
 			<form action="opdracht-session-overzicht.php" method="POST">
 				<p><label for="straat">straat</label></p>
-				<p><input type="text" name="straat" id="straat"></p>
+				<p><input type="text" value="<?= $straat ?>" name="straat" id="straat"></p>
 				<p><label for="nummer">nummer</label></p>
-				<p><input type="text" name ="nummer" id="nummer"></p>
+				<p><input type="text" value="<?= $nummer ?>"name ="nummer" id="nummer"></p>
 				<p><label for="gemeente">gemeente</label></p>
-				<p><input type="text" name ="gemeente" id="gemeente"></p>
+				<p><input type="text" value="<?= $gemeente ?>" name ="gemeente" id="gemeente"></p>
 				<p><label for="postcode">postcode</label></p>
-				<p><input type="text" name ="postcode" id="postcode"></p>
+				<p><input type="text" value="<?= $postcode ?>" name ="postcode" id="postcode"></p>
 				<p><input type="submit" name="volgende" value="Volgende"></p>	
 			</form>
 		<?php endif ?>
