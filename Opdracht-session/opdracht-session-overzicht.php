@@ -10,6 +10,10 @@
 	}
 	$email = $_SESSION['deel1']['email'];
 	$nickname = $_SESSION['deel1']['nickname'];
+	$straat = $_SESSION['deel2']['straat'];
+	$nummer = $_SESSION['deel2']['nummer'];
+	$gemeente = $_SESSION['deel2']['gemeente'];
+	$postcode = $_SESSION['deel2']['postcode'];
 
 	
 ?>
@@ -19,28 +23,15 @@
 		<title>Opdracht session</title>
 	</head>
 	<body>
-		<h1>Registratiegegevens</h1>
-		<?php if(isset($_SESSION['deel1']) ): ?>
+		<h1>Overzicht</h1>
+		<?php if(isset($_SESSION['deel1']) && isset($_SESSION['deel2'])): ?>
 			<ul>
-				<li>e-mail: <?= $email ?></li>
-				<li>nickname: <?= $nickname ?></li>
+				<li>e-mail: <?= $email ?><a href="opdracht-session.php">Wijzig</a></li>
+				<li>nickname: <?= $nickname ?><a href="opdracht-session.php">Wijzig</a></li>
+				<li>straat: <?= $straat ?><a href="opdracht-session-adres.php">Wijzig</a></li>
+				<li>nummer: <?= $nummer ?><a href="opdracht-session-adres.php">Wijzig</a></li>
+				<li>gemeente: <?= $gemeente ?><a href="opdracht-session-adres.php">Wijzig</a></li>
+				<li>postcode: <?= $postcode ?><a href="opdracht-session-adres.php">Wijzig</a></li>
 			</ul>
-
-		<h1>adres</h1>
-			<form action="opdracht-session-overzicht.php" method="POST">
-				<p><label for="straat">straat</label></p>
-				<p><input type="text" name="straat" id="straat"></p>
-				<p><label for="nummer">nummer</label></p>
-				<p><input type="text" name ="nummer" id="nummer"></p>
-				<p><label for="gemeente">gemeente</label></p>
-				<p><input type="text" name ="gemeente" id="gemeente"></p>
-				<p><label for="postcode">postcode</label></p>
-				<p><input type="text" name ="postcode" id="postcode"></p>
-				<p><input type="submit" name="volgende" value="Volgende"></p>	
-			</form>
-			
-		<?php else: ?>
-			
-			</form>
 		<?php endif ?>
 </html>

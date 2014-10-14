@@ -18,6 +18,7 @@
 		$postcode = $_SESSION['deel2']['postcode'];
 	}
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -42,10 +43,6 @@
 				<p><label for="postcode">postcode</label></p>
 				<p><input type="text" name ="postcode" id="postcode"></p>
 				<p><input type="submit" name="volgende" value="Volgende"></p>	
-			</form>
-			
-		<?php else: ?>
-			
 			</form>
 		<?php endif ?>
 </html>
