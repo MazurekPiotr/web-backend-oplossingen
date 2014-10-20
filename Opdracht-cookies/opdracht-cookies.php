@@ -1,17 +1,28 @@
 <?php 
 	$file = file_get_contents('gegevens.txt');
 	$array = explode(',', $file);
-	
-	if(isset($_POST['submit']))
+	$info = '';
+	$cookie = false;
+
+	if(!isset($_COOKIE['cookie']))
 	{
-		if($_POST['gebruiker'] == $file[0] && $_POST['paswoord'] == $file[1])
+		if(isset($_POST['verzenden']))
 		{
-			setcookie('gegevens', true, time()+ 3600);
-			$info = 'U bent ingelogd.';
+			if($_POST['gebruiker'] == $file[0] && $_POST['paswoord'] == $file[1])
+			{
+				setcookie('cookie', '', time()+ 3600);
+				header( 'location: opdracht-cookies.php' );
+			}
+			else
+			{
+				$info = 'Gebruikersnaam en/of paswoord niet correct. Probeer opnieuw.';
+			}
 		}
-		else{
-			$info = 'Gebruikersnaam en/of paswoord niet correct. Probeer opnieuw.';
-		}
+	}
+	else
+	{
+		$info = 'U bent ingelogd.';
+		$cookie = true;
 	}
 ?>
 
@@ -26,6 +37,6 @@
 						<input type="text" name="gebruiker" id="gebruiker">
 						<label for="Paswoord">Paswoord: </label>
 						<input type="password" name="paswoord" id="paswoord">
-						<input type="submit" name="submit" value="verzenden">
+						<input type="submit" name="verzenden" value="verzenden">
 			</form>
 	</body>
