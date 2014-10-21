@@ -6,12 +6,9 @@ if (isset( $_GET['logout']))
 	}
 	$file = file_get_contents('gegevens.txt');
 	$gegevens = explode(',', $file);
-	$array = array('piotr','cookie');
 	$info = '';
 	$cookie = false;
 
-	if(!isset($_COOKIE['cookie']))
-	{
 		if(isset($_POST['verzenden']))
 		{
 			if($_POST['gebruiker'] == $gegevens[0] && $_POST['paswoord'] == $gegevens[1])
@@ -24,8 +21,8 @@ if (isset( $_GET['logout']))
 				$info = 'Gebruikersnaam en/of paswoord niet correct. Probeer opnieuw.';
 			}
 		}
-	}
-	else
+	
+	if(isset($_COOKIE['cookie']))
 	{
 		$info = 'U bent ingelogd.';
 		$cookie = true;
