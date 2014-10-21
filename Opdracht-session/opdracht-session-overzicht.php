@@ -8,12 +8,20 @@
 		$_SESSION['deel2']['gemeente'] = $_POST['gemeente'];
 		$_SESSION['deel2']['postcode'] = $_POST['postcode'];
 	}
-	$email = $_SESSION['deel1']['email'];
-	$nickname = $_SESSION['deel1']['nickname'];
-	$straat = $_SESSION['deel2']['straat'];
-	$nummer = $_SESSION['deel2']['nummer'];
-	$gemeente = $_SESSION['deel2']['gemeente'];
-	$postcode = $_SESSION['deel2']['postcode'];
+
+	if(isset($_SESSION['deel1']))
+	{
+		$email = $_SESSION['deel1']['email'];
+		$nickname = $_SESSION['deel1']['nickname'];
+	}
+	
+	if(isset($_SESSION['deel2']))
+	{
+		$straat = $_SESSION['deel2']['straat'];
+		$nummer = $_SESSION['deel2']['nummer'];
+		$gemeente = $_SESSION['deel2']['gemeente'];
+		$postcode = $_SESSION['deel2']['postcode'];
+	}
 
 	
 ?>
