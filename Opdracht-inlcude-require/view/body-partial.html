@@ -1,0 +1,14 @@
+
+<?php if($artikels): ?>
+	<?php foreach ($artikels as $key => $value): ?>
+		<div>
+			<h1><?= $value['title'] ?></h1>
+			<p><?= $value['text'] ?></p>
+			<p><?= $value['tags'] ?></p>
+		</div>
+	<?php endforeach ?>
+<?php else: ?>
+	<p>
+	De body van de opdracht.
+</p>
+<?php endif ?>
