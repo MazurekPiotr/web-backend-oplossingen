@@ -26,12 +26,12 @@
 		<h1>Overzicht</h1>
 		<?php if(isset($_SESSION['deel1']) && isset($_SESSION['deel2'])): ?>
 			<ul>
-				<li>e-mail: <?= $email ?><a href="opdracht-session.php">Wijzig</a></li>
-				<li>nickname: <?= $nickname ?><a href="opdracht-session.php">Wijzig</a></li>
-				<li>straat: <?= $straat ?><a href="opdracht-session-adres.php">Wijzig</a></li>
-				<li>nummer: <?= $nummer ?><a href="opdracht-session-adres.php">Wijzig</a></li>
-				<li>gemeente: <?= $gemeente ?><a href="opdracht-session-adres.php">Wijzig</a></li>
-				<li>postcode: <?= $postcode ?><a href="opdracht-session-adres.php">Wijzig</a></li>
+				<li>e-mail: <?= $email ?><a href="opdracht-session.php?focus=email">Wijzig</a></li>
+				<li>nickname: <?= $nickname ?><a href="opdracht-session.php?focus=nickname">Wijzig</a></li>
+				<li>straat: <?= $straat ?><a href="opdracht-session-adres.php?focus=straat">Wijzig</a></li>
+				<li>nummer: <?= $nummer ?><a href="opdracht-session-adres.php?focus=nummer">Wijzig</a></li>
+				<li>gemeente: <?= $gemeente ?><a href="opdracht-session-adres.php?focus=gemeente">Wijzig</a></li>
+				<li>postcode: <?= $postcode ?><a href="opdracht-session-adres.php?focus=postcode">Wijzig</a></li>
 			</ul>
 		<?php endif ?>
 </html>

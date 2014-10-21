@@ -20,9 +20,9 @@
 		<h1>Registratiegegevens</h1>
 			<form action="opdracht-session-adres.php" method="POST">
 				<p><label for="e-mail">e-mail:</label></p>
-				<p><input type="text" value="<?= $email ?>" name="e-mail" id="e-mail"></p>
+				<p><input type="text" value="<?= $email ?>" name="e-mail" id="e-mail" <?= (isset($_GET['focus']) && $_GET['focus'] == 'email') ? 'autofocus' : ''?>></p>
 				<p><label for="nickname">nickname</label></p>
-				<p><input type="text" value="<?= $nickname ?>" name ="nickname" id="nickname"></p>
+				<p><input type="text" value="<?= $nickname ?>" name ="nickname" id="nickname" <?= (isset($_GET['focus']) && $_GET['focus'] == 'nickname') ? 'autofocus' : ''?>></p>
 				<p><input type="submit" name="volgende" value="Volgende"></p>	
 			</form>
 </html>
