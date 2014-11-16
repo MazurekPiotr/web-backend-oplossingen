@@ -13,6 +13,7 @@ if (isset( $_GET['logout']))
 		{
 			if($_POST['gebruiker'] == $gegevens[0] && $_POST['paswoord'] == $gegevens[1])
 			{
+				
 				setcookie('cookie', true, time()+ 3600);
 				header('location: opdracht-cookies.php');
 			}
