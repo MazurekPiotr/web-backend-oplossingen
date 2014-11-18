@@ -6,7 +6,7 @@
 		if($_POST['input'] != '')
 			{
 				$_SESSION['todo'][] = $_POST['input'];
-				$bericht = null;
+				$bericht = '';
 				$errormessage ='';
 			}
 		else
@@ -24,17 +24,18 @@
 	{
 		$_SESSION['todo'][] = $_SESSION['done'][$_GET['undo']];
 		unset($_SESSION['done'][$_GET['undo']]);
+		header('location:index.php');
+	}
+	if(!isset($_SESSION['todo']) && !isset($_SESSION['done']))
+	{
+			$bericht = 'Je hebt nog geen TODOs toegevoegd. Zo weinig werk of meesterplanner?';
 	}
 	if(isset($_SESSION['todo']) && isset($_SESSION['done']))
 	{
-		if($_SESSION['todo'] == null && $_SESSION['done'] == null)
+		if(empty($_SESSION['todo']) && empty($_SESSION['done']))
 		{
 			$bericht = 'Je hebt nog geen TODOs toegevoegd. Zo weinig werk of meesterplanner?';
 		}
-	}
-	else
-	{
-		$bericht = 'Je hebt nog geen TODOs toegevoegd. Zo weinig werk of meesterplanner?';
 	}
 	
 	if(isset($_GET['deleteTodo']))
@@ -57,20 +58,18 @@
 		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 	<body>
-		<header><?= $errormessage?></header>
+		<header class="error"><?= $errormessage?></header>
 		<h1>Todo App</h1>
-		<?php if(isset($bericht) && $bericht != null): ?>
+		<?php if(!empty($bericht)): ?>
 			<p><?= $bericht ?></p>
 		<?php else: ?>
 			<h2>Nog te doen</h2>
 			<?php if(isset($_SESSION['todo']) && $_SESSION['todo'] != null): ?>
-				
 				<ul>
 					<?php foreach($_SESSION['todo'] as $key => $value): ?>
-						<li><a href="index.php?do=<?= $key ?>">v</a><?= $value ?>
-							<a href="index.php?deleteTodo=<?= $key ?>">x</a>
-							</li>
-						
+						<li><a href="index.php?do=<?= $key ?>" class="doUndo"></a><?= $value ?>
+							<a href="index.php?deleteTodo=<?= $key ?>" class="verwijder"></a>
+						</li>	
 					<?php endforeach ?>
 				</ul>
 			<?php else: ?>
@@ -80,9 +79,8 @@
 			<?php if (isset($_SESSION['done']) && $_SESSION['done'] != null): ?>
 				<ul>
 					<?php foreach($_SESSION['done'] as $key => $value): ?>
-						<li><a href="index.php?undo=<?= $key ?>">v</a>
-						<?= $value ?><a href="index.php?deleteDone=<?= $key ?>">x</a></li>
-						
+						<li><a href="index.php?undo=<?= $key ?>" class="doUndo"></a>
+						<?= $value ?><a href="index.php?deleteDone=<?= $key ?>" class="verwijder"></a></li>
 					<?php endforeach ?>
 				</ul>
 			<?php else: ?>
@@ -95,5 +93,6 @@
 			<input type="text" id="input" name="input">
 			<input type="submit" name="submitTodo" value="Toevoegen">
 		</form>
+		<?php var_dump($_SESSION) ?>
 	</body>
 </html>
