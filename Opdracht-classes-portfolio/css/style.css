@@ -1,0 +1,118 @@
+body {
+    background-image: url("../img/background3.jpg");
+    background-size:cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: arial, helvetica;
+    overflow-x: auto;
+
+}
+#base {
+    border-radius: 5px;
+    width:940px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+#top{
+    margin-bottom: 1em;
+    width: 100%;
+    
+}
+#basepic{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px;
+    margin-bottom: 10px;
+}
+
+.nav {
+    width: 100%;
+    float: left;
+    margin: 0 0 2em 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav li{
+    display: inline-block;
+    float: left; 
+    margin: 0 5% 0 5%; 
+}
+.btn{
+    display: inline-block;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: white;
+    color: #069;
+    border: 1px solid black;
+}
+
+.nav li a:hover {
+      color: #c00;
+      background-color: #fff; 
+}
+
+#content{
+    border-radius: 5px;
+    width: 100%; 
+    background-color: #eaed8e;
+    box-shadow: 0 0 6px;
+    display: inline-block;
+    align-content:center;
+}
+h3{
+    text-align: center;
+    font-size:30px;
+}
+h4{
+    clear:both;
+    text-align: center;
+}
+input{
+    width: 60%;
+    
+}
+.page-header {
+    position: relative;
+    clear: both;
+    padding: 10px;  
+}
+
+#homepic{
+    margin: 0 30% 0 30%;
+    width: 40%;
+    border-radius: 5px;
+}
+p{
+  margin: 2%;
+}
+.foto{
+    float: left;
+    width: 20%;
+    min-width: 150px;
+    margin: 0 0% 2% 4%;
+    border-radius: 2px;
+    box-shadow: 0 0 10px;
+    max-height:200px;
+    display: inline-block;
+}
+
+
+h4{
+    margin-left: 2%;
+    
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+    width: 101%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 40px;
+}
