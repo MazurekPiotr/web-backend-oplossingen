@@ -2,18 +2,23 @@
 	if(isset($_POST['submit']))
 	 	{
 	 		try{
-	 		$brouwernaam = $_POST['brouwernaam'];
-	 		$adres = $_POST['adres'];
-	 		$postcode = $_POST['postcode'];
-	 		$gemeente = $_POST['gemeente'];
-	 		$omzet = $_POST['omzet'];
-	 		$db = new PDO('mysql:host=localhost;dbname=bieren', 'root', 'rtoip3107');
-	 		$message = "Verbinding gemaakt";
-	 	
-	 		$string ='INSERT INTO brouwers(brouwernaam,adres,postcode,gemeente,omzet)
-	 					VALUES($brouwernaam,$adres,$postcode,$gemeente,$omzet)';
-	 		$statement = $db->prepare($string);
-			$statement->execute();
+		 		$db = new PDO('mysql:host=localhost;dbname=bieren', 'root', 'rtoip3107');
+		 		$message = "Verbinding gemaakt";
+		 	
+		 		$string ='INSERT INTO brouwers(brnaam,adres,postcode,gemeente,omzet)
+		 					VALUES(:brouwernaam,:adres,:postcode,:gemeente,:omzet)';
+		 		$statement = $db->prepare($string);
+		 		$statement->bindParam(':brouwernaam', $_POST['brouwernaam']);
+		 		$statement->bindParam(':adres', $_POST['adres']);
+		 		$statement->bindParam(':postcode', $_POST['postcode']);
+		 		$statement->bindParam(':gemeente', $_POST['gemeente']);
+		 		$statement->bindParam(':omzet', $_POST['omzet']);
+				$isToegevoegd = $statement->execute();
+				if($isToegevoegd)
+				{
+					$insertedID = $db->lastInsertId();
+					$message = "Brouwerij succesvol toegevoegd. Het unieke nummer van deze brouwerij is " . $insertedID;
+				}
 	 		}
 	 		catch(PDOException $e)
 	 		{
@@ -30,7 +35,8 @@
     </head>
     <body>
         <h1>Voeg een brouwer toe</h1>
-        <form action="opdracht-session-overzicht.php" method="POST">
+        <?= $message ?>
+        <form action="index.php" method="POST">
         	<p><label for="brouwernaam">brouwernaam</label></p>
         	<p><input type="text" name="brouwernaam" id="brouwernaam"></p>
         	<p><label for="adres">adres</label></p>
