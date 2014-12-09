@@ -1,7 +1,6 @@
 <?php
 	 try{
             $fetchArraySelect = array();
-            $namesSelect = array();
 	 		$db = new PDO('mysql:host=localhost;dbname=bieren', 'root', 'rtoip3107');
 	 		$message = "Verbinding gemaakt";
 	 		$string = 'SELECT brouwernr,brnaam FROM brouwers LIMIT 5';
@@ -12,6 +11,7 @@
 			{
 				$fetchArray[] =	$row;
 			}
+            
             if(isset($_GET['selectBrouwer']))
             {
                 $stringSelect = 'SELECT bieren.naam
