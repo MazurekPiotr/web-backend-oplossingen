@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'))->before('auth');
-Route::post('/', array('uses' => 'HomeController@postIndex'))->before('csrf');
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));
 Route::get('/login', array('as' => 'login','uses' => 'AuthController@getLogin'));
 Route::post('/login', array('uses' => 'AuthController@postLogin'))->before('csrf');
 Route::get('/register', array('as' => 'register', 'uses' => 'RegisterController@getRegister'));
+Route::post('/register', array('uses' => 'RegisterController@postRegister'))->before('csrf');
+Route::get('/dashboard', array('as' => 'dashboard', 'uses' => 'HomeController@getDashboard'))->before('auth');
+Route::get('/logout', array('uses' => 'HomeController@getLogout'))->before('auth');

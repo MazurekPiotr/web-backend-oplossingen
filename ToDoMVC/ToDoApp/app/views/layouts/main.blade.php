@@ -8,12 +8,22 @@
 			<div>
 				<a href="http://oplossingen.web-backend.local/ToDoMVC/ToDoApp/public">Home</a>
 			</div>
-			<nav>
-                <ul>
-                    <li><a href="http://oplossingen.web-backend.local/ToDoMVC/ToDoApp/public/login">Login</a></li>
-                    <li><a href="http://oplossingen.web-backend.local/ToDoMVC/ToDoApp/public/register">Registreer</a></li>
-                </ul>
-            </nav>
+			@if(Auth::check())
+				<nav>
+                	<ul>
+                    	<li><a href="http://oplossingen.web-backend.local/ToDoMVC/ToDoApp/public/dashboard">Dashboard</a></li>
+                        <li><a href="http://oplossingen.web-backend.local/ToDoMVC/ToDoApp/public/todos">Todos</a></li>
+                        <li><a href="http://oplossingen.web-backend.local/ToDoMVC/ToDoApp/public/logout">Logout ({{Auth::user()->email}})</a></li>
+                    </ul>
+            	</nav>
+			@else
+				<nav>
+	                <ul>
+	                    <li><a href="http://oplossingen.web-backend.local/ToDoMVC/ToDoApp/public/login">Login</a></li>
+	                    <li><a href="http://oplossingen.web-backend.local/ToDoMVC/ToDoApp/public/register">Registreer</a></li>
+	                </ul>
+	            </nav>
+            @endif
 		</header>
 		<div>
 			@yield('content')

@@ -4,17 +4,15 @@ class HomeController extends BaseController {
 
 	public function getIndex()
 	{
-		$items = Auth::user()->items;
-		//return View::make('todos')->with('items', $items);
 		return View::make('home');
 	}
-	public function postIndex(){
-
-	}
-	public function logOut()
+    public function getDashboard()
     {
-        Auth::logout();
-    	Session::flush();
-        return Redirect::to('/');
+    	return View::make('dashboard');
+    }
+    public function getLogout()
+    {
+    	Auth::logout();
+        return Redirect::route('home')->with('flash_notice', 'U bent uitgelogd');
     }
 }

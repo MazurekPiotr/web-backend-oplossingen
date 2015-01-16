@@ -26,6 +26,6 @@ class AuthController extends Controller{
 				'Oeps, je gebruikersnaam en/of paswoord waren niet juist. Probeer opnieuw'
 				));
 		}
-		return Redirect::route('home');
+		return Redirect::route('dashboard');
 	}
 }
