@@ -25,6 +25,9 @@
 	            </nav>
             @endif
 		</header>
+		@if(Session::has('flash_notice'))
+			<div>{{Session::get('flash_notice')}}</div>
+			@endif
 		<div>
 			@yield('content')
 		</div>

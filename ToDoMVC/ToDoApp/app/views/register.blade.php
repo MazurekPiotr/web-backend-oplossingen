@@ -5,9 +5,15 @@
 		<p class="error">{{$error}}</p>
 	@endforeach
 	{{Form::open(array('autocomplete' => 'off'))}}
-		<input type="text" name="e-mail" placeholder="E-mail">
-		<input type="password" name="password" placeholder="Password">
-		<input type="submit" value="Registreer">
+		<p>Email :</p>
+ 
+        <p>{{ Form::text('email') }}</p>
+ 
+        <p>Password :</p>
+ 
+        <p>{{ Form::password('password') }}</p>
+ 
+        <p>{{ Form::submit('Registreer') }}</p>
 	{{Form::close()}}
 
 @stop

@@ -5,27 +5,25 @@ class RegisterController extends Controller{
 	{
 		return View::make('register');
 	}
-
-	public function postRegister(){
-		$rules = array('e-mail' => 'required|unique', 'password' => 'required|min:8');
-		$validator = Validator::make(Input::all(), $rules);
-
-		if($validator->fails())
-		{
-			return Redirect::route('register')->withErrors($validator);
-		}
-
-		$auth = Auth::attempt(array(
-			'email' => Input::get('e-mail'), 
-			'password' => Input::get('password')
-			), false);
-
-		if(!$auth)
-		{
-			return Redirect::route('register')->withErrors(array(
-				'Oeps, je gebruikersnaam en/of paswoord waren niet juist. Probeer opnieuw'
-				));
-		}
-		return Redirect::route('dashboard');
+	public function postRegister()
+	{
+		$data =  Input::only('email', 'password');
+		$rule  =  array(
+                    'email'      => 'required|email|unique:users',
+                    'password'   => 'required|min:6',
+                ) ;
+		$validator = Validator::make($data,$rule);
+		if ($validator->fails())
+            {
+                    return Redirect::to('register')
+                            ->withErrors($validator->messages());
+            }
+            else
+            {
+                    Register::saveFormData(array("email" => Input::get('email'), "password" => Hash::make(Input::get('password'))));
+ 
+                    return Redirect::to('login')
+                            ->with("flash_notice","U bent geregistreerd");
+            }
 	}
 }
