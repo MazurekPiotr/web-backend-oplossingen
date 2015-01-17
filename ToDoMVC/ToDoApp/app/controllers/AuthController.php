@@ -26,6 +26,6 @@ class AuthController extends Controller{
 				'Oeps, je gebruikersnaam en/of paswoord waren niet juist. Probeer opnieuw'
 				));
 		}
-		return Redirect::route('dashboard')->with('flash_notice', 'u bent ingelogd');
+		return Redirect::route('dashboard')->with('flash_notice', 'U bent ingelogd');
 	}
 }

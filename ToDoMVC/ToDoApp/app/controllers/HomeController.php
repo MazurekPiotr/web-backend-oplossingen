@@ -15,4 +15,9 @@ class HomeController extends BaseController {
     	Auth::logout();
         return Redirect::route('home')->with('flash_notice', 'U bent uitgelogd');
     }
+    public function getTodos()
+    {
+        $items = Auth::user()->items;
+        return View::make('todos')->with('items', $items);
+    }
 }

@@ -9,8 +9,13 @@ html
 body
 {
 	margin:0;
+	
 }
 
+#main{
+	position: relative;
+	left:20px;
+}
 .group:after 
 {
   content: "";
@@ -20,23 +25,31 @@ body
 
 .modal
 {
-	margin:5px 0px;
-	padding:5px;
+	position: relative;
+	height: 20px;
+	left: 15px;
+	width: 95%;
 	border-radius:5px;
-}
-
-.success
-{
 	color:#468847;
 	background-color:#dff0d8;
 	border:1px solid #d6e9c6;
+	display: block;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
 }
 
 .error
 {
+	position: relative;
+	height: 20px;
+	left: 15px;
+	width: 95%;
 	color:#b94a48;
 	background-color:#f2dede;
 	border:1px solid #eed3d7;
+
 }
 
 .error p
@@ -49,6 +62,10 @@ body
 	color:#3a87ad;
 	background-color:#d9edf7;
 	border:1px solid #bce8f1;
+}
+
+#list1 li:before:empty{
+    content: "All right, all done!";
 }
 
 

@@ -26,9 +26,12 @@
             @endif
 		</header>
 		@if(Session::has('flash_notice'))
-			<div>{{Session::get('flash_notice')}}</div>
-			@endif
-		<div>
+			<div class="modal">{{Session::get('flash_notice')}}</div>
+		@endif
+		@foreach($errors->all() as $error)
+		<p class="error">{{$error}}</p>
+		@endforeach
+		<div id="main">
 			@yield('content')
 		</div>
 

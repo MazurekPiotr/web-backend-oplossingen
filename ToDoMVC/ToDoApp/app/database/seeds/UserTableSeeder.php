@@ -7,8 +7,8 @@ class UserTableSeeder extends Seeder{
 
 		$users = array(
 			array(
-				'email' => 'Exapme@example.com',
-				'password' => Hash::make('miauw')
+				'email' => 'admin@admin.com',
+				'password' => Hash::make('superadmin')
 				)
 			);
 		DB::table('users')->insert($users);
