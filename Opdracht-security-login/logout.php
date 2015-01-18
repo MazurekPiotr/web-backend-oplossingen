@@ -2,17 +2,17 @@
 
 	session_start();
 
-	function __autoload( $classname )
+	function __autoload($classname)
 	{
-		require_once( $classname . '.php' );
+		require_once( './classes/'.$classname.'.php' );
 	}
 
-	$logout	=	User::logout();
+	$logout	= User::logout();
 
-	if ( $logout )
+	if ($logout)
 	{
-		$logoutMessage	=	new Message('success', 'Tot de volgende keer!');
-		header( 'location: phpoefening-029-a-login-form.php' );
+		$logoutMessage = new Notification('Tot de volgende keer!');
+		header('location: login.php');
 	}
 
 ?>
