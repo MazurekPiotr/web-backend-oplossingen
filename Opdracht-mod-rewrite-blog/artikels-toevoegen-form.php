@@ -37,6 +37,5 @@
         </form>
         <?= $message ?>
         <?php var_dump($_SESSION) ?>
-        2015/05/05
     </body>
 </html>

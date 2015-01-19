@@ -12,7 +12,6 @@
 		$email = $explodedCookie[0];
 		$top = '<a href="dashboard.php">Terug naar dashboard</a> | Ingelogd als ' . $email . ' | <a href="logout.php">uitloggen</a>';
 	}
-	$connection = new PDO('mysql:host=localhost;dbname=crud-cms', 'root', 'rtoip3107');
 	if(isset($_SESSION['notification']['text']))
 	{
 		$notification = $_SESSION['notification']['text'];

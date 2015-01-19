@@ -36,20 +36,5 @@
                 header('Location: artikels-toevoegen-form.php');
                 exit;
             }
-        }
-    
-        
-        
+        }             
 ?>
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-    	<title>Opdracht mod rewrite basis</title>
-    </head>
-    <body>
-        <h1>Artikel toevoegen</h1>
-        
-
-    </body>
-</html>
