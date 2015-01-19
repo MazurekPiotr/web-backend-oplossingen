@@ -23,6 +23,9 @@
 		new Notification('Er ging iets, probeer opnieuw in te loggen.');
 		header('location: index.php');
 	}
+	if(isset($_SESSION["notification"]['text'])){
+		$message = $_SESSION["notification"]['text'];
+	}
 
 ?>
 
